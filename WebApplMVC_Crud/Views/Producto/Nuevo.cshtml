@@ -1,9 +1,9 @@
 ﻿@model WebApplMVC_Crud.Models.ViewModels.ProductoVM
 @{
-    ViewBag.Title = "Creacion de Producto";
+    ViewBag.Title = "Create New Product";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2 class="viewBagTitle">@ViewBag.Title</h2>
 
 @*Html.BeginForm(Nombre del Metodo en El controlador, Nombre del Controlador, Metodo a Utilizar)*@
 @using (Html.BeginForm("Nuevo", "Producto", FormMethod.Post))
@@ -15,24 +15,31 @@
             @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red-danger" })
             <br />
             @Html.LabelFor(d => d.Descripcion)
-            @Html.TextBoxFor(d => d.Descripcion, "", new { @class = "form-control" })
+            @Html.TextAreaFor(d => d.Descripcion, new { @class = "form-control" })
             @Html.ValidationMessageFor(d => d.Descripcion, null, new { @class = "red-danger" })
-            <br />
+        </div>
+        <div class="col-md-4">
             @Html.LabelFor(d => d.PrecioCompra)
             @Html.TextBoxFor(d => d.PrecioCompra, "", new { @class = "form-control" })
             @Html.ValidationMessageFor(d => d.PrecioCompra, null, new { @class = "red-danger" })
-            <br />
+        </div>
+        <div class="col-md-4">
             @Html.LabelFor(d => d.PrecioVenta)
             @Html.TextBoxFor(d => d.PrecioVenta, "", new { @class = "form-control" })
             @Html.ValidationMessageFor(d => d.PrecioVenta, null, new { @class = "red-danger" })
-            <br />
+        </div>
+        <div class="col-md-4">
             @Html.LabelFor(d => d.InventarioMinimo)
             @Html.TextBoxFor(d => d.InventarioMinimo, "", new { @class = "form-control" })
             @Html.ValidationMessageFor(d => d.InventarioMinimo, null, new { @class = "red-danger" })
+        </div>
+        <div class="col-md-12">
             <div style="text-align:right; margin-top:5px;">
                 <input class="btn btn-success" type="submit" value="Guardar Producto" />
             </div>
+            <div style="text-align:left; margin-top:5px;">
+                <a href="~/Producto/" class="btn btn-danger">Atras</a>
+            </div>
         </div>
-
     </div>
 }

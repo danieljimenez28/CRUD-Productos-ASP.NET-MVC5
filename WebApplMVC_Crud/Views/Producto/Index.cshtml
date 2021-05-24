@@ -1,13 +1,13 @@
 ﻿@model List<WebApplMVC_Crud.Models.ViewModels.ListProductoVM>
 @{
-    ViewBag.Title = "Listado de Productos";
+    ViewBag.Title = "Product List";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2 class="viewBagTitle">@ViewBag.Title</h2>
 
 <div class="row">
     <div class="col-md-12" style="text-align:right; padding:10px">
-        <a href="~/Producto/Nuevo" class="btn btn-primary"> Nuevo Producto</a>
+        @Html.ActionLink("New Product", "Nuevo", "Producto", new { @class = "btn btn-primary" })
     </div>
     <div class="col-md-12">
         <table class="table table-hover">
@@ -16,6 +16,7 @@
                 <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Precio</th>
+                <th>Inv Minimo</th>
                 <th></th>
             </tr>
             @foreach (var lis in Model)
@@ -25,12 +26,20 @@
                     <td>@lis.Nombre</td>
                     <td>@lis.Descripcion</td>
                     <td>@lis.PrecioVenta</td>
+                    <td>@lis.InventarioMinimo</td>
+
                     <td>
-                        <a class="btn btn-info" href="/Producto/Editar/@lis.Id">Editar</a>
-                        <a class="btn btn-danger" href="/Producto/Eliminar/@lis.Id">Eliminar</a>
+                        <a class="btn btn-info" href="/Producto/Editar/@lis.Id">Edit</a>
+                        <a class="btn btn-danger" href="/Producto/Eliminar/@lis.Id">Delete</a>
                     </td>
                 </tr>
             }
         </table>
     </div>
 </div>
+
+<p class="btn btn-primary">
+    Total: <span class="badge bg-secondary">@Model.Count</span>
+</p>
+
+

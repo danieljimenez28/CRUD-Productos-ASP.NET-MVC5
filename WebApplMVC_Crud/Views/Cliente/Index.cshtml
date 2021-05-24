@@ -1,0 +1,37 @@
+﻿@model List<WebApplMVC_Crud.Models.ViewModels.ListClienteVM>
+
+@{
+    ViewBag.Title = "Client List";
+}
+
+<h2 class="viewBagTitle">@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12" style="text-align:right; padding:10px">
+        @Html.ActionLink("New Client", "Nuevo", "Cliente", new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <tr>
+                <th>No.</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                @*<th></th>*@
+            </tr>
+            @foreach (var list in Model)
+            {
+                <tr>
+                    <td>@list.ClienteID</td>
+                    <td>@list.Nombre</td>
+                    <td>@list.Direccion</td>
+                    <td>@list.Telefono</td>
+                    @*<td>@Html.ActionLink("Edit", $"Editar/{@list.ClienteID}", "Cliente", new { @class = "btn btn-info" })</td>*@
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<span class="badge bg-info text-dark">Total: @Model.Count</span>
+

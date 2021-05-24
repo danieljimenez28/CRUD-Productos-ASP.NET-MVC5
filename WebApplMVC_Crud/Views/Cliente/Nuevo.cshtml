@@ -1,0 +1,36 @@
+﻿@model WebApplMVC_Crud.Models.ViewModels.ClienteVM
+
+@{
+    ViewBag.Title = "New Client";
+}
+
+<h2 class="viewBagTitle">@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nuevo", "Cliente", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-8">
+            @Html.LabelFor(d => d.Nombre)
+            @Html.TextBoxFor(d => d.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red-danger" })
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(d => d.Telefono)
+            @Html.TextBoxFor(d => d.Telefono, new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Telefono, null, new { @class = "red-danger" })
+        </div>
+        <div class="col-md-12">
+            @Html.LabelFor(d => d.Direccion)
+            @Html.TextAreaFor(d => d.Direccion, new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Direccion, null, new { @class = "red-danger" })
+        </div>
+        <div class="col-md-12">
+            <div style="text-align:right; margin-top:5px;">
+                <input class="btn btn-success" type="submit" value="Guardar Producto" />
+            </div>
+            <div style="text-align:left; margin-top:5px;">
+                <a href="~/Cliente/" class="btn btn-danger">Atras</a>
+            </div>
+        </div>
+    </div>
+}

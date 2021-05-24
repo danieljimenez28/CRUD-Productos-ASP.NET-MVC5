@@ -1,5 +1,10 @@
-﻿
+﻿body{
+    margin-top:40px;
+}
 .red-danger
 {
     color:red;
+}
+.viewBagTitle {
+    text-align:center;
 }

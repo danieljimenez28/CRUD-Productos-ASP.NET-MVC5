@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Clientes">
       <EntityTypeMapping TypeName="ProductosFerreterosDBModel.Clientes">
         <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
           <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
